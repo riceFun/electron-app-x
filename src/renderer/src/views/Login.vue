@@ -55,6 +55,12 @@ const handleLogin = async (): Promise<void> => {
 }
 </script>
 
-<style scoped>
-/* 样式同上 */
+<style scoped lang="scss">
+.login-container {
+  background-color: red;
+
+  .form-group {
+    background-color: aqua;
+  }
+}
 </style>
