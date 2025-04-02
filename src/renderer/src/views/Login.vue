@@ -45,7 +45,7 @@ const form = ref<LoginForm>({
   password: ''
 })
 
-const handleLogin = async () => {
+const handleLogin = async (): Promise<void> => {
   // 这里可以调用 Electron 主进程进行认证
   // 简单模拟登录成功
   if (form.value.username && form.value.password) {

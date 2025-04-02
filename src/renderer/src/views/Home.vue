@@ -16,7 +16,7 @@ const authStore = useAuthStore()
 
 const username = '管理员' // 可以从状态或主进程获取
 
-const handleLogout = () => {
+const handleLogout = (): void => {
   authStore.logout()
   router.push({ name: 'Login' })
 }
