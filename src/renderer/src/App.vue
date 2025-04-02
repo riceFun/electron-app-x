@@ -1,26 +1,42 @@
-<script setup lang="ts">
-import Versions from './components/Versions.vue'
+<template>
+  <!-- 整个应用的根容器 -->
+  <div id="app">
+    <!-- 路由匹配的组件会渲染在这里 -->
+    <router-view />
+  </div>
+</template>
 
-const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'App',
+  setup() {
+    // 可以在这里初始化一些全局逻辑
+    return {}
+  }
+})
 </script>
 
-<template>
-  <img alt="logo" class="logo" src="./assets/electron.svg" />
-  <div class="creator">Powered by electron-vite</div>
-  <div class="text">
-    Build an Electron app with
-    <span class="vue">Vue</span>
-    and
-    <span class="ts">TypeScript</span>
-  </div>
-  <p class="tip">Please try pressing <code>F12</code> to open the devTool</p>
-  <div class="actions">
-    <div class="action">
-      <a href="https://electron-vite.org/" target="_blank" rel="noreferrer">Documentation</a>
-    </div>
-    <div class="action">
-      <a target="_blank" rel="noreferrer" @click="ipcHandle">Send IPC</a>
-    </div>
-  </div>
-  <Versions />
-</template>
+<style>
+/* 全局样式 */
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  height: 100vh; /* 确保全屏高度 */
+  overflow: hidden; /* 防止滚动条问题 */
+}
+
+/* Electron 窗口拖拽区样式（无边框窗口需要） */
+.drag-area {
+  -webkit-app-region: drag;
+  height: 30px;
+  background: #2c3e50;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+}
+</style>
