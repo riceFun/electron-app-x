@@ -21,6 +21,10 @@ function createWindow(): void {
     mainWindow.show()
   })
 
+  mainWindow.on('ready-to-show', () => {
+    mainWindow.show()
+  })
+
   mainWindow.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url)
     return { action: 'deny' }
@@ -72,3 +76,26 @@ app.on('window-all-closed', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+// ipcMain.on("PULL_DANMU", async () => {
+//   console.log('mmmmmm');
+//   // if (['wx', 'xhs', 'pdd', 'tb', 'dy','ks'].includes(room.platform)) {
+//   //   const userDataPath = app.getPath('userData');
+//   //   const configFilePath = join(userDataPath, 'config.json');
+//   //   commonServices[room.uniqueid] = new CommonService(configFilePath, mainWindow!, room.platform);
+//   //   commonServices[room.uniqueid].setChromePath(chrome);
+//   //   commonServices[room.uniqueid].start(room);
+//   //   console.log('===>pppp,fffff',room);
+//   // }
+//   // // else if (room.platform === 'ks') {
+//   // //   if (!ksService) {
+//   // //     ksService = new KsService(mainWindow!);
+//   // //   }
+//   // //   ksService.start(room);
+//   // // }
+// })
+
+ipcMain.on('PULL_DANMU', () => {
+  console.log('uuuuu')
+
+})
