@@ -7,11 +7,8 @@
 
 <script lang="ts" setup>
 
-import { ipcRenderer } from 'electron'
-import { IpcChannel } from '../../../shared/ipcTypes'
-
 const openChrome = (): void => {
-  console.log('dddd');
+  console.log('openChrome');
   // 发送消息到主进程
   window.electron.ipcRenderer.send('PULL_DANMU', '渲染进程消息');
 }

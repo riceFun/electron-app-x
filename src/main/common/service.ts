@@ -1,4 +1,4 @@
-import puppeteer, { Browser, HTTPResponse, Page } from "puppeteer";
+import { Browser } from "puppeteer";
 import puppeteerks from "puppeteer-extra";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
 
