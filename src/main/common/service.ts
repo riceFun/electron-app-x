@@ -6,14 +6,13 @@ import StealthPlugin from "puppeteer-extra-plugin-stealth";
 class LiveService {
   public browser: Browser | null = null;
 
-  public async openChrome() {
+  public async openChrome(): Promise<void> {
     const liveRoomUrl = "https://live.kuaishou.com/u/3x4546nfkivjsxe";
     puppeteerks.use(StealthPlugin());
     // 启动浏览器
     this.browser = await puppeteerks.launch({
       // executablePath: path.join(__dirname, 'chrome-win', 'chrome.exe'),
       // executablePath: chrome,
-
       // executablePath: '../../../resources/puppeteer_chrome/chrome.exe?asset&asarUnpack',
       // executablePath: '../../../resources/puppeteer_chrome/chrome.exe',
       // executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
