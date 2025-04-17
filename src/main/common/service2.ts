@@ -1,16 +1,16 @@
-import { Browser } from "puppeteer";
-import puppeteerks from "puppeteer-extra";
-import StealthPlugin from "puppeteer-extra-plugin-stealth";
+import puppeteer, { Browser } from 'puppeteer';
+// import puppeteerks from "puppeteer-extra";
+// import StealthPlugin from "puppeteer-extra-plugin-stealth";
 
 
-class LiveService {
+class LiveService2 {
   public browser: Browser | null = null;
 
   public async openChrome(): Promise<void> {
     const liveRoomUrl = "https://live.kuaishou.com/u/3x58ih6cka4tci9";
-    puppeteerks.use(StealthPlugin());
+    // puppeteerks.use(StealthPlugin());
     // 启动浏览器
-    this.browser = await puppeteerks.launch({
+    this.browser = await puppeteer.launch({
       // executablePath: path.join(__dirname, 'chrome-win', 'chrome.exe'),
       // executablePath: chrome,
       // executablePath: '../../../resources/puppeteer_chrome/chrome.exe?asset&asarUnpack',
@@ -31,6 +31,10 @@ class LiveService {
 
     // 创建新页面
     const page = await this.browser.newPage();
+    await page.evaluateOnNewDocument(() => {
+      Object.defineProperty(navigator, "webdriver", { get: () => false });
+    });
+
     // // 设置视窗大小
     // await page.setViewport({
     //   width: 1280,
@@ -110,4 +114,4 @@ var pauseIdx = setInterval(() => {
     });
   }
 }
-export default LiveService;
+export default LiveService2;

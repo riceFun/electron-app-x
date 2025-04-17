@@ -2,7 +2,7 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
-import LiveService from './common/service'
+import LiveService2 from './common/service2'
 
 function createWindow(): void {
   // Create the browser window.
@@ -77,6 +77,6 @@ app.on('window-all-closed', () => {
 
 ipcMain.on('PULL_DANMU', () => {
   console.log('on PULL_DANMU')
-  const liveService = new LiveService();
+  const liveService = new LiveService2();
   liveService.openChrome();
 })
